@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MY PERSONALITY TEST</title>
+</head>
+<body>  
+    <h1>Welcome to My Personality Test Website</h1>
+    <p>This website is created by Bhumika Gayakwad.</p>
+    <h2><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Personality Type Quiz</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f5f7fa;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .question {
+            background: white;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            background: #008cff;
+            color: white;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        #resultBox {
+            margin-top: 20px;
+            background: #e8ffe8;
+            padding: 20px;
+            border-radius: 8px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Personality Guess Quiz</h1>
+
+    <form id="quizForm">
+
+        <div class="question">
+            <p>1. You prefer spending your weekend:</p>
+            <input type="radio" name="q1" data-int="2"> Alone<br>
+            <input type="radio" name="q1" data-ext="2"> With many people<br>
+            <input type="radio" name="q1" data-amb="2"> With close friends<br>
+        </div>
+
+        <div class="question">
+            <p>2. How do you make decisions?</p>
+            <input type="radio" name="q2" data-log="2"> Based on logic<br>
+            <input type="radio" name="q2" data-cre="2"> Based on creativity<br>
+        </div>
+
+        <div class="question">
+            <p>3. In group work, you usually:</p>
+            <input type="radio" name="q3" data-lea="2"> Take the lead<br>
+            <input type="radio" name="q3" data-sup="2"> Support others<br>
+        </div>
+
+        <div class="question">
+            <p>4. Parties make you feel:</p>
+            <input type="radio" name="q4" data-ext="2"> Energetic<br>
+            <input type="radio" name="q4" data-int="2"> Drained<br>
+        </div>
+
+        <div class="question">
+            <p>5. You prefer:</p>
+            <input type="radio" name="q5" data-cre="2"> Artistic activities<br>
+            <input type="radio" name="q5" data-log="2"> Problem solving<br>
+        </div>
+
+        <div class="question">
+            <p>6. In a new environment:</p>
+            <input type="radio" name="q6" data-ext="2"> Make friends quickly<br>
+            <input type="radio" name="q6" data-int="2"> Stay quiet<br>
+            <input type="radio" name="q6" data-amb="2"> Mix slowly<br>
+        </div>
+
+        <div class="question">
+            <p>7. You enjoy tasks that are:</p>
+            <input type="radio" name="q7" data-log="2"> Organized<br>
+            <input type="radio" name="q7" data-cre="2"> Imaginative<br>
+        </div>
+
+        <div class="question">
+            <p>8. People usually see you as:</p>
+            <input type="radio" name="q8" data-lea="2"> Confident leader<br>
+            <input type="radio" name="q8" data-sup="2"> Helpful supporter<br>
+        </div>
+
+        <div class="question">
+            <p>9. Your energy comes from:</p>
+            <input type="radio" name="q9" data-ext="2"> Socializing<br>
+            <input type="radio" name="q9" data-int="2"> Being alone<br>
+        </div>
+
+        <div class="question">
+            <p>10. Your mind works:</p>
+            <input type="radio" name="q10" data-log="2"> Analytically<br>
+            <input type="radio" name="q10" data-cre="2"> Imaginatively<br>
+        </div>
+
+        <button type="button" onclick="calculateResult()">Submit & Predict</button>
+    </form>
+
+    <div id="resultBox"></div>
+
+    <script>
+        function calculateResult() {
+            let int = 0, ext = 0, amb = 0;
+            let log = 0, cre = 0;
+            let lea = 0, sup = 0;
+
+            let answers = document.querySelectorAll("input[type='radio']:checked");
+
+            if (answers.length < 10) {
+                alert("Please answer all questions!");
+                return;
+            }
+
+            answers.forEach(a => {
+                int += parseInt(a.dataset.int || 0);
+                ext += parseInt(a.dataset.ext || 0);
+                amb += parseInt(a.dataset.amb || 0);
+                log += parseInt(a.dataset.log || 0);
+                cre += parseInt(a.dataset.cre || 0);
+                lea += parseInt(a.dataset.lea || 0);
+                sup += parseInt(a.dataset.sup || 0);
+            });
+
+            let social = "Ambivert";
+            if (int > ext && int > amb) social = "Introvert";
+            else if (ext > int && ext > amb) social = "Extrovert";
+
+            let thinking = log >= cre ? "Logical Thinker" : "Creative Thinker";
+            let role = lea >= sup ? "Leader" : "Supportive";
+
+            document.getElementById("resultBox").style.display = "block";
+            document.getElementById("resultBox").innerHTML = `
+                <h2>Your Personality Result</h2>
+                <p><b>Social Type:</b> ${social}</p>
+                <p><b>Thinking Style:</b> ${thinking}</p>
+                <p><b>Role Type:</b> ${role}</p>
+            `;
+        }
+    </script>
+
+</body>
+</html></h2>
+    
+</body>
+</html>
